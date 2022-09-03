@@ -51,9 +51,20 @@ export default {
   data() {
     return {
       contacts,
+      fiveContacts: [],
     }
+  },
+  created() {
+    for (let i = 0; i < 5; i++) {
+      this.fiveContacts.push(this.contacts.shift())
+    }
+  },
+method: {
+  sortByName() {
+    this.fiveContacts.sort((a,b) => a.name > b.name ? 1 : -1);
   }
-};
+}
+}
 </script>
 
 <style>
